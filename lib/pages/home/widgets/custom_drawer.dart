@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/setting/setting_view.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  final Function onCategoryDrawer;
+
+  const CustomDrawer({super.key, required this.onCategoryDrawer});
 
   @override
   Widget build(BuildContext context) {
@@ -23,40 +26,51 @@ class CustomDrawer extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
           ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.menu,
-                  size: 38,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "Categories",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                )
-              ],
+          GestureDetector(
+            onTap: () {
+              onCategoryDrawer();
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.menu,
+                    size: 38,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Categories",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  )
+                ],
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.settings,
-                  size: 38,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "Settings",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                )
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, SettingView.routeName);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.settings,
+                    size: 38,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Settings",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  )
+                ],
+              ),
             ),
           ),
         ],
