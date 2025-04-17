@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:news_app/pages/setting/setting_view.dart';
 
 class CustomDrawer extends StatelessWidget {
-  final Function onCategoryDrawer;
+  final Function onItemClicked;
 
-  const CustomDrawer({super.key, required this.onCategoryDrawer});
+  const CustomDrawer({
+    super.key,
+    required this.onItemClicked,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,33 +20,30 @@ class CustomDrawer extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            width: mediaQuery.width * 0.7,
-            height: mediaQuery.width * 0.33,
+            width: double.infinity,
+            height: mediaQuery.height * 0.15,
             color: theme.primaryColor,
-            child: Text("News App!",
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white)),
+            child: Text("News App!", style: theme.textTheme.titleLarge),
           ),
           GestureDetector(
             onTap: () {
-              onCategoryDrawer();
+              onItemClicked();
             },
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.only(top: 16.0, left: 16),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.menu,
-                    size: 38,
+                    size: 32,
                   ),
-                  SizedBox(
-                    width: 10,
+                  const SizedBox(
+                    width: 12,
                   ),
                   Text(
                     "Categories",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                    style: theme.textTheme.titleMedium!
+                        .copyWith(color: Colors.black),
                   )
                 ],
               ),
@@ -51,28 +51,26 @@ class CustomDrawer extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pop(context);
               Navigator.pushNamed(context, SettingView.routeName);
             },
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.only(top: 16.0, left: 16),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.settings,
-                    size: 38,
+                    size: 32,
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  const SizedBox(width: 12),
                   Text(
                     "Settings",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                    style: theme.textTheme.titleMedium!
+                        .copyWith(color: Colors.black),
                   )
                 ],
               ),
             ),
-          ),
+          )
         ],
       ),
     );
