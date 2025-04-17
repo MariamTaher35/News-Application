@@ -1,0 +1,15 @@
+{
+  "@@locale": "ar",
+  "settingsTitle": "الإعدادات",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "homeTitle": "تطبيق الأخبار",
+  "categories": "الفئات",
+  "search": "بحث",
+  "latestNews": "آخر الأخبار",
+  "noNews": "لا توجد أخبار",
+  "retry": "أعد المحاولة"
+}
+
+

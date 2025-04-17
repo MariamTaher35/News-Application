@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+  "settingsTitle": "Settings",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "homeTitle": "News App",
+  "categories": "Categories",
+  "search": "Search",
+  "latestNews": "Latest News",
+  "noNews": "No news found",
+  "retry": "Retry"
+}
+
